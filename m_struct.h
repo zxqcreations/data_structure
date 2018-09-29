@@ -1,5 +1,5 @@
 #define maxSize 100
-typedef struct
+typedef struct Sqlist
 {
 	int data[maxSize];
 	int length;
