@@ -4,9 +4,8 @@
 
 int initList(Sqlist &L)
 {
-	if(L==NULL)
-		return 0;
 	L.length = 0;
+	return 1;
 }
 
 int getItem(Sqlist L, int p, int &e)
@@ -34,7 +33,7 @@ int insertItem(Sqlist &L, int p, int e)
                 return 0;
 	if (p==L.length)
 	{
-		L.data[length] = e;
+		L.data[p] = e;
 		return 1;
 	}
 	for (int i=L.length-1; i>=p; i--)
@@ -58,14 +57,14 @@ void createListR(LNode *&c, int a[], int n)
 {
 	c = (LNode *)malloc(sizeof(LNode));
 	c->next = NULL;
-	LNode *b, *n;
+	LNode *b, *q;
 	b = c;
 	for (int i=0; i<n; i++)
 	{
-		n = (LNode *)malloc(sizeof(LNode));
-		n->data = a[i];
-		b->next = n;
-		b = n;
+		q = (LNode *)malloc(sizeof(LNode));
+		q->data = a[i];
+		b->next = q;
+		b = b->next;
 	}
 	b->next = NULL;
 }
@@ -94,12 +93,12 @@ void mergeList(LNode *a, LNode *b, LNode *&c)
 	free(b);
 	while(n!=NULL && m!=NULL)
 	{
-		r->next = n?(n->data <= m->data):m;
+		r->next = (n->data <= m->data)?n:m;
 		n = n->next;
 		m = m->next;
-		r = r->next
+		r = r->next;
 	}
-	r->next = n?(n!=NULL):m;
+	r->next = (n!=NULL)?n:m;
 }
 
 void mergeListRev(LNode *a, LNode *b, LNode *&c)
@@ -109,13 +108,13 @@ void mergeListRev(LNode *a, LNode *b, LNode *&c)
         c->next = NULL;
 	while(n!=NULL && m!=NULL)
 	{
-		r = n?(n->data <= m->data):m;
+		r = (n->data <= m->data)?n:m;
 		r->next = c->next;
 		c->next = r;
 		n = n->next;
 		m = m->next;
 	}
-	r = n?(n!=NULL):m;
+	r = (n!=NULL)?n:m;
 	while(r!=NULL)
 	{
 		t = r;

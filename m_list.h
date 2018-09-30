@@ -3,7 +3,7 @@
 int	findItem(Sqlist L, int x);
 int	insertItem(Sqlist &L, int p, int e);
 int	deleteItem(Sqlist &L, int p, int e);
-void	initList(Sqlist &L);
+int	initList(Sqlist &L);
 int	getItem(Sqlist L, int p, int &e);
 
 void	createListR(LNode *&c, int a[], int n);
