@@ -1,5 +1,14 @@
+/*
+Writen by Xueqian Zhang (zxqsoftware@foxmail.com).
+
+有一个递增非空单链表， 设计一个算法删除值域重复的节点， 例如：
+[In]
+	{1,1,2,3,3,3,4,4,7,7,7,9,9,9};
+[Out]	
+	{1,2,3,4,7,9};
+本例使用了两种删除算法del1和del2.
+*/
 #include "m_list.h"
-//#include "m_struct.h"
 #include <iostream>
 #include <cstdlib>
 
